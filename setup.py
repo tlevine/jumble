@@ -9,6 +9,7 @@ setup(name='jumble',
       url='https://github.com/tlevine/jumble',
       packages=['jumble'],
       install_requires = [],
+      extras_require = ['futures==2.1.6'], # python 2 support
       tests_require = ['nose'],
       version=__version__,
       license='AGPL',

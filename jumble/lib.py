@@ -1,4 +1,7 @@
-import concurrent.futures
+try:
+    from concurrent.futures import ThreadPoolExecutor
+except ImportError:
+    from futures import ThreadPoolExecutor
 
 def jumble(func, iterable, max_workers = 50):
     '''
@@ -10,7 +13,7 @@ def jumble(func, iterable, max_workers = 50):
     :param max_workers: Because this is running in parallel
     '''
     jobs = {}
-    with concurrent.futures.ThreadPoolExecutor(max_workers) as e:
+    with ThreadPoolExecutor(max_workers) as e:
         for i, item in enumerate(iterable):
             jobs[i] = e.submit(func, item)
         
