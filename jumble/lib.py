@@ -2,6 +2,9 @@ import concurrent.futures
 
 def jumble(func, iterable, max_workers = 50):
     '''
+    Run a function a bunch of times, and return results as futures in the order
+    that they finish.
+
     :param func: A function that takes one argument
     :param iterable: The function will be applied to each element of this iterable.
     :param max_workers: Because this is running in parallel
