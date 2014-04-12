@@ -1,0 +1,5 @@
+Run something in parallel, and generate results in the order they finish. ::
+
+    from jumble import jumble
+    for future in jumble(requests.get, ['http://thomaslevine.com','http://whitehouse.gov']):
+        print(future.result())
